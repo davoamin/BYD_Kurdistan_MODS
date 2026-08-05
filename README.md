@@ -390,7 +390,7 @@ Use this software at your own risk. Camera systems, displays, firmware, and vehi
 
 ## Author
 
-**Davo Amin**  
+**Davar Amin**  
 **BYD Kurdistan MODS**
 
 ---

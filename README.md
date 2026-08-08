@@ -210,34 +210,6 @@ Dashcam
 
 ---
 
-## Vehicle Sleep and Wake Recovery
-
-BYD KR Vision includes recovery handling for compatible vehicle and Android power events.
-
-Supported recovery conditions include:
-
-- Screen off and screen on
-- Vehicle sleep and wake
-- Android user unlock
-- ACC changes
-- Ignition changes
-- Quick boot
-- Cold boot
-- Package update
-- System process recreation
-
-Recovery functions include:
-
-- Projection restoration
-- Camera task restoration
-- Secondary-display recovery
-- Steering-wheel button-service recovery
-- Blind-spot service recovery
-- Startup-pipeline recovery
-- Existing task reuse
-
----
-
 ## Device Activation
 
 BYD KR Vision uses device-bound activation.
@@ -246,7 +218,6 @@ The activation screen provides:
 
 ```text
 Device ID
-Copy Device ID
 Send Request
 Receive License
 ```
@@ -376,8 +347,8 @@ Not every feature is guaranteed to work on every BYD model or firmware version.
 
 Different vehicles may use different:
 
-- Camera IDs
-- Display IDs
+- Camera
+- Display
 - Permissions
 - System services
 - Projection methods

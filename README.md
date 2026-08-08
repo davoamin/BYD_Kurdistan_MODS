@@ -1,18 +1,7 @@
 # BYD KR Vision
 
-<p align="center">
-  <strong>Camera projection, digital mirror views, blind-spot monitoring, crop calibration, and steering-wheel button customization for compatible BYD DiLink vehicles.</strong>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Version-3.0.11-blue" alt="Version">
-  <img src="https://img.shields.io/badge/Android-9%2B-green" alt="Android">
-  <img src="https://img.shields.io/badge/Platform-BYD%20DiLink-orange" alt="Platform">
-  <img src="https://img.shields.io/badge/Source-Proprietary-red" alt="Source">
-</p>
-
 > [!IMPORTANT]
-> BYD KR Vision is an independent third-party project.
+> BYD KR Vision is an independent third-party project and is not affiliated with BYD.
 
 ---
 
@@ -30,21 +19,34 @@ The app supports:
 - Automatic left and right blind-spot cameras
 - Custom steering-wheel button actions
 - Vehicle sleep and wake recovery
-- Device-bound licensing
+- Device-bound activation
 - GitHub OTA update checking
-
 
 ---
 
 ## Release Information
 
 | Item | Value |
-|---|---|
-| Version | `3.0.11` |
-| Version code | `674` |
+| --- | --- |
+| Version | `3.1.26` |
+| Version code | `714` |
 | Package name | `com.byd.kurdistan.dashcam` |
-| GitHub release tag | `v3.0.11` |
-| APK name | `BYD-KR-Vision-v3.0.11-release.apk` |
+| GitHub release tag | `v3.1.26` |
+| APK name | `BYD-KR-Vision-v3.1.26-release.apk` |
+
+### What's Changed
+
+- Fixed several bugs and stability issues
+- Improved camera reliability
+- Improved instrument-cluster projection
+- Improved vehicle sleep and wake recovery
+- Improved background service reliability
+- Improved steering-wheel button handling
+- Improved blind-spot camera reliability
+- Improved camera preview and calibration behavior
+- Improved compatibility across supported BYD vehicles
+- Cleaned and polished the user interface
+- General performance and reliability improvements
 
 ---
 
@@ -73,7 +75,7 @@ Dual Mirror supports:
 - Independent crop calibration
 - Normal and Rear Focus tuning modes
 - Shared panoramic AVM camera session
-
+- Automatic camera recovery
 
 ---
 
@@ -91,16 +93,28 @@ Projection functions include:
 - Recover projection after vehicle wake
 - Keep projection active while returning to the main launcher
 - Automatic secondary-display detection
-- Modern and legacy display-control paths
-- Compatibility handling for DiLink UI5, UI6, and UI7
+- Multiple display-control methods
+- Compatibility handling for different DiLink UI generations
 
-Compatibility depends on the vehicle model, firmware, Android configuration, display layout, and available system permissions.
+### Projection Method
+
+**Automatic (Recommended)** automatically selects the best available method for the detected vehicle system.
+
+Manual compatibility methods are also available when required.
+
+Compatibility depends on:
+
+- Vehicle model
+- Firmware version
+- Android configuration
+- Display layout
+- Available system permissions
 
 ---
 
 ## Automatic Blind-Spot Camera
 
-BYD KR Vision can display the corresponding side camera when the left or right turn indicator is activated.
+BYD KR Vision can automatically display the corresponding side camera when the left or right turn indicator is activated.
 
 Features include:
 
@@ -108,52 +122,55 @@ Features include:
 - Separate destination selection for each side
 - Instrument-cluster display option
 - Main-screen display option
-- Automatic activation
+- Automatic camera activation
 - Automatic restoration when the indicator is cancelled
-- Shared AVM session for faster camera switching
-- Manual Test Left and Test Right controls
+- Shared AVM camera session for faster switching
+- Independent left and right calibration
+- Preview Left and Preview Right controls
 
 ---
 
-## Camera Crop Calibration
+## Camera Calibration
 
-Each camera view stores its own crop and position values.
+Each supported camera view stores its own crop, size, and position configuration.
 
-Available controls:
+Available controls include:
 
+- Width
+- Height
+- X position
+- Y position
 - Horizontal crop
 - Vertical crop
 - Move Y
 - `−5` fine adjustment
 - `+5` fine adjustment
 
-Each `−5` or `+5` press:
+Fine adjustment controls:
 
-- Changes the selected value by exactly five units
-- Applies the result immediately
-- Saves the new value
-- Uses the supported range from `-600` to `600`
-- Updates only the currently selected camera profile
+- Change the selected value by exactly five units
+- Apply the result immediately
+- Save the new value
+- Update only the currently selected camera profile
 
-Separate crop profiles are maintained for:
+Separate camera profiles are maintained for:
 
 - Dashcam
 - Rear Camera
 - Front Camera
 - Dual Mirror
+- Blind-spot camera views
 
 ---
 
-## Dual Custom Steering-Wheel Buttons
+## Custom Steering-Wheel Buttons
 
-Version 3.0.11 provides two independent custom-button profiles:
+BYD KR Vision provides two independent custom steering-wheel button profiles:
 
 ```text
 Custom Button 1
 Custom Button 2
 ```
-
-Existing configurations from older versions remain available as **Custom Button 1**.
 
 Each profile supports:
 
@@ -165,13 +182,14 @@ Each profile supports:
 - Independent target application
 - Save and activate
 - Restore original function
-- Persistent configuration after reboot and vehicle wake
+- Persistent configuration after reboot
+- Recovery after vehicle sleep and wake
 
 The same physical button cannot be assigned to both profiles.
 
 ### Available Actions
 
-Each press type can be assigned to one of the following:
+Each supported press type can be assigned to one of the following:
 
 - Start Projection
 - Stop Projection
@@ -180,7 +198,7 @@ Each press type can be assigned to one of the following:
 - Switch Camera View
 - No Action
 
-The Switch Camera View action cycles through:
+The **Switch Camera View** action cycles through:
 
 ```text
 Dashcam
@@ -214,34 +232,72 @@ Recovery functions include:
 - Camera task restoration
 - Secondary-display recovery
 - Steering-wheel button-service recovery
+- Blind-spot service recovery
 - Startup-pipeline recovery
 - Existing task reuse
 
 ---
 
-## OTA Updates
+## Device Activation
 
-The app checks GitHub Releases for newer APK versions.
+BYD KR Vision uses device-bound activation.
 
-Recommended release format:
+The activation screen provides:
 
 ```text
-Tag: v3.0.11
-Asset: BYD-KR-Vision-v3.0.11-release.apk
+Device ID
+Copy Device ID
+Send Request
+Receive License
 ```
+
+### Activation Steps
+
+1. Open BYD KR Vision.
+2. Make sure the vehicle head unit has internet access.
+3. Copy the displayed Device ID if required.
+4. Press **Send Request**.
+5. Wait for the activation request to be approved.
+6. Press **Receive License**.
+7. Restart the app if requested.
+
+---
+
+## OTA Updates
+
+BYD KR Vision can check GitHub Releases for newer application versions.
+
+Recommended GitHub release format:
+
+```text
+Tag: v3.1.26
+Asset: BYD-KR-Vision-v3.1.26-release.apk
+```
+
+Updates should always use the same package name and official release signing key.
+
+---
 
 ## Installation
 
 ### Standard Installation
 
-1. Download `BYD-KR-Vision-v3.0.11-release.apk`.
+1. Download:
+
+```text
+BYD-KR-Vision-v3.1.26-release.apk
+```
+
 2. Copy the APK to the BYD head unit.
-3. Open the APK using Android’s package installer.
+3. Open the APK using Android's package installer.
 4. Allow installation from the selected source when requested.
-5. Install the application.
-6. Open BYD KR Vision.
+5. Install BYD KR Vision.
+6. Open the application.
 7. Grant the required permissions.
-8. Complete camera and projection configuration while parked.
+8. Complete device activation.
+9. Configure camera and projection options while the vehicle is safely parked.
+
+---
 
 ### Update an Existing Installation
 
@@ -252,21 +308,29 @@ Do not:
 - Uninstall the previous version
 - Clear application data
 - Change the package name
-- Sign the new APK with a different key
+- Sign the APK with a different key
+
+The official package name is:
+
+```text
+com.byd.kurdistan.dashcam
+```
+
+---
 
 ### ADB Installation
 
 ```powershell
-adb install -r "BYD-KR-Vision-v3.0.11-release.apk"
+adb install -r "BYD-KR-Vision-v3.1.26-release.apk"
 ```
 
-The `-r` option updates the application while preserving its existing data.
+The `-r` option updates the application while preserving existing app data.
 
 ---
 
 ## Required Permissions
 
-Available features may require some or all of the following:
+Available functions may require some or all of the following:
 
 - Camera access
 - Accessibility Service
@@ -279,81 +343,153 @@ Available features may require some or all of the following:
 - Local ADB access
 - Privileged shell access for advanced projection functions
 
-Permission availability varies by vehicle, firmware, region, and DiLink generation.
+Permission availability varies by vehicle, firmware, region, and DiLink configuration.
 
 ---
 
 ## Compatibility
 
-Compatibility depends on:
+BYD KR Vision is designed primarily for compatible **BYD DiLink 5** vehicles.
 
-- BYD vehicle model - Song plus - Seal 06 - Seal 07 - Leopard 3/5/7/8 - Qin L - Seal 05 (withdashcam)
-- DiLink generation 5
+Known or targeted vehicle families include:
+
+- BYD Song Plus
+- BYD Seal 06
+- BYD Seal 07
+- BYD Qin L
+- BYD Seal 05 with compatible dashcam hardware
+- Leopard 3
+- Leopard 5
+- Leopard 7
+- Leopard 8
+
+Compatibility requirements may include:
+
+- DiLink 5
+- Compatible BYD camera hardware
+- Secondary instrument-cluster display
+- Required BYD system permissions
 - Local ADB availability
+- Shell access for advanced functions
 
-Not every feature is guaranteed to work on every BYD model but we can customize it and fix it.
+Not every feature is guaranteed to work on every BYD model or firmware version.
+
+Different vehicles may use different:
+
+- Camera IDs
+- Display IDs
+- Permissions
+- System services
+- Projection methods
+
+Some models may require additional compatibility adjustments.
 
 ---
 
 ## Recommended Initial Setup
 
 1. Park the vehicle safely.
-2. Open BYD KR Vision.
-3. Grant the required permissions.
-4. Select the correct DiLink compatibility mode.
-5. Test Dashcam view.
-6. Test Rear Camera.
-7. Test Front Camera.
-8. Calibrate crop and Move Y for each camera.
-9. Test Dual Mirror.
-10. Test the left blind-spot camera.
-11. Test the right blind-spot camera.
-12. Configure Custom Button 1.
-13. Configure Custom Button 2.
-14. Test single, double, and long presses.
-15. Test vehicle sleep and wake recovery.
+2. Install BYD KR Vision.
+3. Open the application.
+4. Complete device activation.
+5. Grant the required permissions.
+6. Keep **Automatic (Recommended)** selected for Projection Method.
+7. Preview the Dashcam view.
+8. Preview the Rear Camera.
+9. Preview the Front Camera.
+10. Calibrate crop, size, and position where required.
+11. Preview Dual Mirror.
+12. Preview the left blind-spot camera.
+13. Preview the right blind-spot camera.
+14. Configure Custom Button 1 if required.
+15. Configure Custom Button 2 if required.
+16. Test single, double, and long-press actions.
+17. Test projection recovery.
+18. Test vehicle sleep and wake recovery.
 
 ---
 
 ## Troubleshooting
 
-### Custom button does not respond
+### Device Activation Does Not Complete
 
-- Confirm that the Accessibility Service is enabled.
-- Detect the physical button again.
-- Save and activate the profile.
-- Confirm that the same button is not assigned to both profiles.
-- Restart the button service or reboot the head unit.
-
-### Camera opens on the wrong screen
-
-- Verify the selected display destination.
-- Confirm the correct DiLink compatibility mode.
-- Use the projection recovery controls.
-- Stop and restart the projection task.
-
-### Crop adjustment is not visible
-
-- Confirm that the correct camera profile is selected.
-- Open the live camera preview.
-- Use `−5` and `+5` for fine adjustment.
-- Restart the projection if the firmware is caching the previous surface.
-
-### Projection stops after vehicle sleep
-
-- Enable vehicle wake recovery.
-- Confirm the required background permissions.
-- Open the app once after reboot.
-- Test recovery while the vehicle is safely parked.
+- Confirm the device has an internet connection.
+- Confirm the displayed Device ID is correct.
+- Send the activation request again.
+- Wait for the request to be approved.
+- Press **Receive License** after approval.
+- Restart the app if necessary.
 
 ---
 
-## Security
+### Custom Button Does Not Respond
 
-BYD KR Vision includes protection and validation features such as:
+- Confirm that Accessibility Service is enabled.
+- Detect the physical button again.
+- Save and activate the profile.
+- Confirm that the same physical button is not assigned to both profiles.
+- Restart the button service if available.
+- Reboot the head unit if necessary.
 
-- Device-bound licensing
-- Online license request
+---
+
+### Camera Opens on the Wrong Screen
+
+- Verify the selected display destination.
+- Keep the projection method on **Automatic (Recommended)**.
+- Check **System Status** or **Projection Status**.
+- Restore the dashboard and restart projection if required.
+
+---
+
+### Camera Preview Does Not Start
+
+- Confirm the required camera permissions are available.
+- Confirm the selected camera is supported by the vehicle.
+- Stop any other active camera view.
+- Try the camera preview again.
+- Restart the application if required.
+
+---
+
+### Camera Calibration Is Not Visible
+
+- Confirm that the correct camera profile is selected.
+- Open the live camera preview.
+- Adjust the required Width, Height, Crop, X, or Y value.
+- Use `−5` and `+5` for fine adjustment.
+- Restart the camera view if required.
+
+---
+
+### Blind-Spot Camera Does Not Open
+
+- Confirm the blind-spot function is enabled.
+- Preview the left and right cameras manually.
+- Confirm the selected destination screen.
+- Check the vehicle indicator operation.
+- Restart the blind-spot function if necessary.
+
+---
+
+### Projection Does Not Start
+
+- Keep the projection method on **Automatic (Recommended)**.
+- Confirm that the secondary display is detected.
+- Check **Projection Status**.
+- Restore the original dashboard.
+- Start projection again.
+- Restart the application or head unit if necessary.
+
+---
+
+### Projection Stops After Vehicle Sleep
+
+- Confirm vehicle wake recovery is enabled.
+- Confirm the required background permissions are available.
+- Open BYD KR Vision once after reboot.
+- Start projection again if required.
+- Test recovery while the vehicle is safely parked.
 
 ---
 
@@ -364,17 +500,35 @@ BYD KR Vision includes protection and validation features such as:
 
 Do not interact with the app while driving.
 
-Camera views must not cover essential vehicle information or distract the driver. The user is responsible for following local traffic, vehicle, safety, and software regulations.
+Camera views must not cover essential vehicle information or distract the driver.
+
+The user is responsible for following applicable:
+
+- Traffic regulations
+- Vehicle regulations
+- Safety requirements
+- Software regulations
 
 ---
 
 ## Source and Distribution
 
-This project is proprietary software.
+BYD KR Vision is proprietary software.
 
-The source code may not be copied, modified, republished, redistributed, sublicensed, or sold without written permission from the copyright owner.
+The source code may not be:
 
-The compiled APK may only be distributed through authorized BYD Kurdistan MODS channels.
+- Copied
+- Modified
+- Republished
+- Redistributed
+- Sublicensed
+- Sold
+
+without written permission from the copyright owner.
+
+The compiled APK may only be distributed through authorized **BYD Kurdistan MODS** channels.
+
+Unauthorized modified or redistributed versions are not supported.
 
 ---
 
@@ -382,9 +536,13 @@ The compiled APK may only be distributed through authorized BYD Kurdistan MODS c
 
 BYD KR Vision is an independent third-party project.
 
-BYD, DiLink, and related names and logos are trademarks of their respective owners. No affiliation, endorsement, partnership, or sponsorship is implied.
+BYD, DiLink, Fang Cheng Bao, Leopard, and related names and logos are trademarks of their respective owners.
 
-Use this software at your own risk. Camera systems, displays, firmware, and vehicle services may behave differently across vehicle models and software versions.
+No affiliation, endorsement, partnership, or sponsorship by BYD is implied.
+
+Use this software at your own risk.
+
+Vehicle cameras, displays, firmware, Android services, permissions, and system behavior may vary across vehicle models and software versions.
 
 ---
 
